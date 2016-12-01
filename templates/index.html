@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Index{% endblock %}
+{% block additional_css %}
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+{% endblock %}
+{% block content %}
+    <div class="jumbotron">
+        <h1>Djangular</h1>
+        <p>
+            Django + Angular app.
+        </p>
+    </div>
+{% endblock %}
