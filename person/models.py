@@ -28,6 +28,7 @@ class Car(models.Model):
     year = models.CharField(verbose_name='Year', max_length=4)
     color = models.CharField(verbose_name='Color', max_length=32, blank=True,
                              null=True)
+    person = models.ForeignKey(Person, verbose_name='Person')
 
     def __str__(self):
         return ' - '.join([self.name, self.year])

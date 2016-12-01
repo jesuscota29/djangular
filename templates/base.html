@@ -1,5 +1,6 @@
+{% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="Djangular">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
@@ -45,9 +46,15 @@
 
     <div class="container theme-showcase" role="main">
         {% block content %}{% endblock %}
+        <ui-view></ui-view>
     </div>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{% static "angular/bower_components/angular/angular.js" %}"></script>
+<script src="{% static "angular/bower_components/angular-ui-router/release/angular-ui-router.js" %}"></script>
+<script src="{% static "angular/public/appRoutes.js" %}"></script>
+<script src="{% static "angular/public/app.js" %}"></script>
+<script src="{% static "angular/public/components/person/controllers/person.controller.js" %}"></script>
 {% block additional_js %}{% endblock %}
 </body>
 </html>
