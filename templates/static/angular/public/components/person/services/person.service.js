@@ -5,8 +5,12 @@
 angular.module('PersonService', []).factory('PersonFactory', function($http) {
 
     return {
-        get : function (callback) {
+        getAll : function (callback) {
             $http.get(BASE_URL + 'persons/').success(callback);
+        },
+
+        addPerson : function(personData, callback) {
+            $http.post(BASE_URL + 'persons/', personData).success(callback);
         }
     }
 

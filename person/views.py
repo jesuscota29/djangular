@@ -1,6 +1,7 @@
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -26,6 +27,13 @@ class PersonList(APIView):
         persons = Person.objects.all()
         serializer = PersonSerializer(persons, many=True)
         return Response(serializer.data)
+
+    def post(self, request):
+        serializer = PersonSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class CarList(APIView):

@@ -6,8 +6,19 @@ angular.module('PersonController', []).controller('PersonController', function($
 
     $scope.message = 'Hello world!';
 
-    PersonFactory.get(function(persons) {
+    PersonFactory.getAll(function(persons) {
         $scope.persons = persons;
-    })
+    });
+
+    $scope.addPerson = function() {
+        var randomPerson = {
+            name: "abc",
+            last_name: "defg",
+            birthdate: "2016-11-11"
+        };
+        PersonFactory.addPerson(randomPerson, function(person) {
+            $scope.persons.push(person);
+        });
+    }
 
 });
