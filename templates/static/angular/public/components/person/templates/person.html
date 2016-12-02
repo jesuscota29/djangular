@@ -1,6 +1,9 @@
 <div class="jumbotron" ng-controller="PersonController">
     <h1>Personas</h1>
     <p>
-        Message: {{ message }}
+        List
     </p>
+    <div ng-repeat="person in persons">
+        {{ person }}
+    </div>
 </div>
