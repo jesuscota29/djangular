@@ -1,4 +1,6 @@
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -9,6 +11,10 @@ from person.serializers import PersonSerializer, CarSerializer
 def index(request):
     context = dict()
     return render(request, 'index.html', context)
+
+
+def person_list(request):
+    return HttpResponseRedirect(reverse('/#personas'))
 
 
 class PersonList(APIView):

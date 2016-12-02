@@ -7,8 +7,8 @@ angular.module('appRoutes', ['ui.router'])
 
         $stateProvider.state({
             name: 'Person',
-            url: '/',
-            templateUrl: 'person/templates/person.html',
+            url: '/personas',
+            templateUrl: 'static/angular/public/components/person/templates/person.html',
             controller: 'PersonController'
         });
 

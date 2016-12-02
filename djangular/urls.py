@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.conf import settings
 import django.views.static
 
-from person.views import index
+from person.views import index, person_list
 import person.urls as api_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
+
+    url(r'^personas', person_list, name='personas'),
     url(r'^api/', include(api_urls)),
 
     url(r'^static/(?P<path>.*)$', django.views.static.serve,

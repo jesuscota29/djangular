@@ -24,7 +24,7 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="{% url "index" %}">Home</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="/#{% url "personas" %}">About</a></li>
                     <li><a href="#">Contact</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -45,8 +45,11 @@
     </nav>
 
     <div class="container theme-showcase" role="main">
-        {% block content %}{% endblock %}
-        <ui-view></ui-view>
+        {% block content %}
+            <ui-view>
+
+            </ui-view>
+        {% endblock %}
     </div>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
