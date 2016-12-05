@@ -7,9 +7,38 @@
         {{ person }}
     </div>
     <div class="row text-center">
-        <a class="btn btn-sm btn-default" ng-click="addPerson()">
+        <a class="btn btn-sm btn-default" ng-click="showPersonForm()">
             <i class="fa fa-plus"></i>&nbsp;Agregar Persona
         </a>
     </div>
-{#    Aqui falta agregar con un form!!!#}
+    <form ng-submit="addPerson(personData)" name="addPersonForm" ng-show="personFormVisible">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Name</label>
+                    <input type="text" class="form-control input-sm" ng-model="personData.name" id="name"/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Last Name</label>
+                    <input type="text" class="form-control input-sm" ng-model="personData.last_name" id="last_name"/>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Birthdate</label>
+                    <input type="text" class="form-control input-sm" ng-model="personData.birthdate" id="birthdate" />
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <button class="btn btn-sm btn-success" type="submit">
+                <i class="fa fa-save"></i>&nbsp;Guardar
+            </button>
+            <a class="btn btn-sm btn-warning" ng-click="cancelPersonForm()">
+                <i class="fa fa-times"></i>&nbsp;Cancelar
+            </a>
+        </div>
+    </form>
 </div>

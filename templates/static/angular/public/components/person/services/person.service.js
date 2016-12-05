@@ -9,8 +9,8 @@ angular.module('PersonService', []).factory('PersonFactory', function($http) {
             $http.get(BASE_URL + 'persons/').success(callback);
         },
 
-        addPerson : function(personData, callback) {
-            $http.post(BASE_URL + 'persons/', personData).success(callback);
+        addPerson : function(personData, callback, errorCallback) {
+            $http.post(BASE_URL + 'persons/', personData).success(callback).error(errorCallback);
         }
     }
 
