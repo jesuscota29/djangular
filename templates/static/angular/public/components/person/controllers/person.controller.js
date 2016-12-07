@@ -2,7 +2,7 @@
  * Created by jesuscc29 on 1/12/16.
  */
 
-angular.module('PersonController', []).controller('PersonController', function ($scope, PersonFactory) {
+angular.module('PersonController', ['ui.bootstrap']).controller('PersonController', function ($scope, PersonFactory, ModalService) {
 
     $scope.personFormVisible = false;
     $scope.personFormErrors = false;
@@ -12,16 +12,12 @@ angular.module('PersonController', []).controller('PersonController', function (
     });
 
     $scope.addPerson = function (personData) {
-        if (personData.$invalid) {
-            return;
-        }
         PersonFactory.addPerson(personData, function (person) {
             $scope.persons.push(person);
             clearPersonForm();
-        }, function(error) {
-            for (var key in error) {
-                $("#" + key).parent().addClass("has-error").append(error[key]);
-            }
+        }, function (error) {
+            console.log(error);
+            alert("Please validate form.");
         });
     };
 
@@ -41,5 +37,32 @@ angular.module('PersonController', []).controller('PersonController', function (
         $scope.addPersonForm.$setPristine();
         $scope.personFormVisible = false;
     }
+
+    $scope.showConfirmRemove = function(person_pk) {
+        ModalService.showModal({
+            templateUrl: "static/angular/public/components/person/templates/modals/confirm_delete.html",
+            controller: "ModalCtrl",
+            scope: $scope
+        }).then(function(modal) {
+            modal.element.modal();
+            modal.close.then(function(result) {
+                if (result) {
+                    alert("Borrando: " + person_pk);
+                }
+            });
+        });
+    };
+
+    /* Date picker click options for person */
+    $scope.dpBirthdate = {
+        opened: false
+    };
+
+    $scope.openDPBirthdate = function () {
+        $scope.dpBirthdate.opened = true;
+    };
+
+    /* ------ End DatePicker options ------- */
+
 
 });

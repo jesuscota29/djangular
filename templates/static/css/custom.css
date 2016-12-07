@@ -16,3 +16,7 @@ body {
 .theme-showcase .navbar .container {
   width: auto;
 }
+
+.submitted .ng-invalid{
+    border: 1px solid red;
+}

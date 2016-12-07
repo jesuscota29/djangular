@@ -9,7 +9,8 @@ from django.utils.encoding import python_2_unicode_compatible
 class Person(models.Model):
     name = models.CharField(verbose_name='Name', max_length=72)
     last_name = models.CharField(verbose_name='Last Name', max_length=72)
-    birthdate = models.DateField(verbose_name='Birthdate', default=timezone.now)
+    birthdate = models.DateTimeField(verbose_name='Birthdate',
+                                     default=timezone.now)
 
     def __str__(self):
         return ' '.join([self.name, self.last_name])

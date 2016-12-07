@@ -130,3 +130,5 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
+
+DATE_INPUT_FORMATS = '%Y-%m-%d'

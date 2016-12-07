@@ -6,6 +6,7 @@
     <title>{% block title %}{% endblock %}</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static "css/custom.css" %}" />
     {% block additional_css %}{% endblock %}
 </head>
 <body>
@@ -53,8 +54,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="{% static "angular/bower_components/angular/angular.js" %}"></script>
 <script src="{% static "angular/bower_components/angular-ui-router/release/angular-ui-router.js" %}"></script>
+<script src="{% static "angular/bower_components/angular-bootstrap/ui-bootstrap.min.js" %}"></script>
+<script src="{% static "angular/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" %}"></script>
+<script src="{% static "angular/bower_components/angular-modal-service/dst/angular-modal-service.min.js" %}"></script>
 <script src="{% static "angular/public/appRoutes.js" %}"></script>
 <script src="{% static "angular/public/app.js" %}"></script>
+<script src="{% static "angular/public/components/person/controllers/modal.controller.js" %}"></script>
 <script src="{% static "angular/public/components/person/controllers/person.controller.js" %}"></script>
 <script src="{% static "angular/public/components/person/services/person.service.js" %}"></script>
 {% block additional_js %}{% endblock %}

@@ -9,7 +9,7 @@ __author__ = 'Jesús Cota'
 class PersonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Person
-        fields = ('name', 'last_name', 'birthdate')
+        fields = ('pk', 'name', 'last_name', 'birthdate')
 
 
 class CarSerializer(serializers.ModelSerializer):

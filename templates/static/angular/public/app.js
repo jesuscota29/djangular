@@ -6,7 +6,9 @@
 
 var BASE_URL = 'http://127.0.0.1:8000/api/';
 
-angular.module('Djangular', ['appRoutes', 'PersonController', 'PersonService']).run(run);
+angular.module('Djangular',
+    ['appRoutes', 'PersonController', 'PersonService', 'angularModalService']
+).run(run);
 
 /**
  * @name run
